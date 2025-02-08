@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdjad8rdl1iq4"]
+
+[ext_resource type="Texture2D" uid="uid://62eoyce11yns" path="res://barman-barista-pixel-art-old-260nw-1299192448.webp" id="1_fbu8e"]
+[ext_resource type="Script" path="res://playerMove.gd" id="1_u3nqg"]
+[ext_resource type="Texture2D" uid="uid://bclbd5rdo65pl" path="res://Wood Floor.webp" id="2_gf8gb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_br0bd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljvqe"]
+size = Vector2(82, 88)
+
+[node name="Scene2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+visibility_layer = 512
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_br0bd")
+position = Vector2(572, 285)
+motion_mode = 1
+script = ExtResource("1_u3nqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-4, -23)
+shape = SubResource("RectangleShape2D_ljvqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-4, -23)
+scale = Vector2(0.298077, 0.298214)
+texture = ExtResource("1_fbu8e")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Floor" type="Node2D" parent="."]
+visibility_layer = 524800
+z_index = -2
+position = Vector2(572, 285)
+scale = Vector2(1.11297, 0.787619)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+visibility_layer = 512
+texture = ExtResource("2_gf8gb")
